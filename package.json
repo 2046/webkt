@@ -1,7 +1,9 @@
 {
   "name": "webkt",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "JavaScript webkit",
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "build": "npx tsc",
     "test": "npx jest",
@@ -9,6 +11,23 @@
     "commit": "npx git-cz",
     "prepare": "husky install"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2046/webkt.git"
+  },
+  "author": "2046",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/2046/webkt/issues"
+  },
+  "homepage": "https://github.com/2046/webkt#readme",
+  "keywords": [
+    "webkit",
+    "web-kit",
+    "web.kit",
+    "webkits",
+    "kit"
+  ],
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
@@ -107,7 +126,7 @@
       "@typescript-eslint/ban-ts-comment": "off"
     },
     "env": {
-      "node": true
+      "browser": true
     }
   },
   "jest": {

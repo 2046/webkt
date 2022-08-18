@@ -3,7 +3,9 @@
   "lib": ["dom", "dom.iterable", "esnext"],
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "declaration": true,
+    "declarationDir": "./types"
   },
   "include": ["src/**/*.ts"]
 }

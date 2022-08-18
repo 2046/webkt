@@ -35,3 +35,6 @@ jsconfig.json
 
 # -- lock files --
 package-lock.json
+
+# -- TypeScript definition files --
+/types
