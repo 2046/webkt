@@ -1,3 +1,3 @@
-export function sayHello(name: string) {
-  return `Hello ${name}`
-}
+import store from './store'
+
+export { store }
