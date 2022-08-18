@@ -1,0 +1,14 @@
+# -- Husky config --
+.husky
+
+# -- Jest --
+/coverage
+
+# -- test cases --
+test/
+
+# -- commit spec config --
+cz.config.js
+
+# -- Project License --
+LICENSE
