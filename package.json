@@ -1,7 +1,7 @@
 {
   "name": "webkt",
   "version": "0.0.1",
-  "description": "Javascript webkit",
+  "description": "JavaScript webkit",
   "scripts": {
     "build": "npx tsc",
     "test": "npx jest",

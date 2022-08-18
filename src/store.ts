@@ -2,7 +2,7 @@ export default {
   get<T>(key: string) {
     const value = normalize(parse<T>(localStorage.getItem(key) || 'null'))
 
-    if (value.payload && Date.now() >= value._timestamp) {
+    if (value._timestamp && Date.now() >= value._timestamp) {
       this.remove(key)
       value.payload = null
     }
