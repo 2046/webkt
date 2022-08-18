@@ -1,5 +1,6 @@
 {
-  "extends": "@tsconfig/node14/tsconfig.json",
+  "extends": "@tsconfig/recommended/tsconfig.json",
+  "lib": ["dom", "dom.iterable", "esnext"],
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist"
