@@ -2,7 +2,7 @@ export default {
   get<T>(key: string) {
     const value = normalize(parse<T>(localStorage.getItem(key) || 'null'))
 
-    if (value._timestamp && Date.now() >= value._timestamp) {
+    if (value._t && Date.now() >= value._t) {
       this.remove(key)
       value.payload = null
     }
@@ -11,7 +11,13 @@ export default {
   },
   set<T>(key: string, value: T, expire?: string) {
     if (expire) {
-      localStorage.setItem(key, JSON.stringify({ payload: value, _timestamp: Date.now() + toSecond(expire) }))
+      localStorage.setItem(
+        key,
+        JSON.stringify({
+          payload: value,
+          _t: Date.now() + toSecond(expire)
+        })
+      )
     } else {
       localStorage.setItem(key, JSON.stringify(value))
     }
@@ -33,13 +39,9 @@ function parse<T>(text: string) {
 }
 
 function normalize<T>(value: T) {
-  const val = <{ payload: T; _timestamp: number }>(<unknown>value)
+  const val = <{ payload: T; _t: number }>value
 
-  if (val && val._timestamp) {
-    return { _timestamp: val._timestamp, payload: val.payload }
-  }
-
-  return { _timestamp: 0, payload: value }
+  return val && val._t ? val : { _t: 0, payload: value }
 }
 
 function toSecond(val: string) {

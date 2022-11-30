@@ -1,11 +1,23 @@
 {
-  "extends": "@tsconfig/recommended/tsconfig.json",
-  "lib": ["dom", "dom.iterable", "esnext"],
   "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
+    "strict": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "target": "ESNext",
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "declarationDir": "./types"
+    "declarationDir": "types"
   },
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts"
+  ]
 }

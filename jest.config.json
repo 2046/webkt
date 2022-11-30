@@ -1,0 +1,10 @@
+{
+  "collectCoverage": true,
+  "preset": "ts-jest",
+  "testMatch": [
+    "**/test/**/*.[jt]s?(x)",
+    "**/?(*.)+(spec|test).[jt]s?(x)"
+  ],
+  "resetMocks": false,
+  "setupFiles": ["jest-localstorage-mock"]
+}

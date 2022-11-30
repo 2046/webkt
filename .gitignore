@@ -32,9 +32,3 @@ jsconfig.json
 
 # -- Jest --
 /coverage
-
-# -- lock files --
-package-lock.json
-
-# -- TypeScript definition files --
-/types

@@ -1,33 +1,7 @@
 import { store } from '../src'
-
-const mockLocalStorage = (function () {
-  let store: {
-    [key: string]: string
-  } = {}
-
-  return {
-    getItem: (key: string) => {
-      return store[key] || null
-    },
-    setItem: (key: string, value: string) => {
-      store[key] = value
-    },
-    removeItem: (key: string) => {
-      delete store[key]
-    },
-    clear: () => {
-      store = {}
-    }
-  }
-})()
+import { describe, test, expect } from '@jest/globals'
 
 describe('Store', () => {
-  beforeAll(() => {
-    Object.defineProperty(global, 'localStorage', {
-      value: mockLocalStorage
-    })
-  })
-
   it('get', () => {
     localStorage.setItem('hello1', JSON.stringify('world'))
 
@@ -38,10 +12,7 @@ describe('Store', () => {
   it('get expired data', (done) => {
     localStorage.setItem(
       'hello4',
-      JSON.stringify({
-        payload: 'world',
-        _timestamp: Date.now()
-      })
+      JSON.stringify({ payload: 'world', _t: Date.now() })
     )
 
     setTimeout(() => {
@@ -53,10 +24,7 @@ describe('Store', () => {
   it('get unexpired data', (done) => {
     localStorage.setItem(
       'hello5',
-      JSON.stringify({
-        payload: 'world',
-        _timestamp: Date.now() + 1000
-      })
+      JSON.stringify({ payload: 'world', _t: Date.now() + 1000 })
     )
 
     setTimeout(() => {
@@ -94,7 +62,14 @@ describe('Store', () => {
   })
 
   it('set throw exception', () => {
-    expect(() => store.set('hello11', 'world', '1y')).toThrow('Invalid argument format.')
+    expect(() => store.set('hello11', 'world', '1y')).toThrow(
+      'Invalid argument format.'
+    )
+  })
+
+  it('set & get data', () => {
+    store.set('hello13', 'world')
+    expect(store.get('hello13')).toBe('world')
   })
 
   it('remove', () => {
