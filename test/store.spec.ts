@@ -1,5 +1,5 @@
 import { store } from '../src'
-import { describe, test, expect } from '@jest/globals'
+import { describe, expect } from '@jest/globals'
 
 describe('Store', () => {
   it('get', () => {
